@@ -31,18 +31,22 @@ end
 always @(*) begin
     case (present_state) 
         A : 
-            if (in == 1) begin
-                next_state <= present_state;
-            end else begin
-                next_state <= B;
+            begin
+                if (in == 1) begin
+                    next_state <= present_state;
+                end else begin
+                    next_state <= B;
+                end
             end
         
         B : 
-            if (in == 1) begin
-                next_state <= present_state;
+            begin
+                if (in == 1) begin
+                    next_state <= present_state;
 
-            end else begin
-                next_state <= A;
+                end else begin
+                    next_state <= A;
+                end
             end
 
         default : 
@@ -54,3 +58,4 @@ always @(*) begin
 end
     
 
+endmodule
